@@ -1,0 +1,19 @@
+# Core data and ML libraries
+numpy==2.1.3
+scipy==1.15.3
+pandas
+scikit-learn==1.6.1
+
+# Embeddings and vector search
+sentence-transformers
+faiss-cpu
+
+# LLM inference
+transformers
+accelerate
+
+# DSPy workflow and evaluation
+dspy==3.3.1
+
+# Chat interface
+gradio

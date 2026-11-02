@@ -1,0 +1,71 @@
+RAG, EMBEDDINGS, AND VECTOR DATABASES
+
+Source: Microsoft Learn, Generative AI for Beginners — Retrieval Augmented Generation (RAG) and Vector Databases.
+Purpose: Learning material for a RAG demonstration project.
+
+1. Why use RAG?
+
+A language model has knowledge learned during training, but an application may need to answer questions using a particular collection of documents. RAG provides a way to connect an LLM with external information.
+
+Instead of asking the LLM to answer only from its internal learned knowledge, the application first searches the application's data and supplies relevant results to the model.
+
+2. Vector embeddings
+
+An embedding converts text into a numerical vector. The vector represents semantic characteristics of the text.
+
+For example, two pieces of text with related meanings can have vectors that are close to each other in vector space.
+
+This makes embeddings useful for semantic search.
+
+3. Vector databases
+
+A vector database or vector index stores vector representations and supports similarity search.
+
+A RAG application can store embeddings for document chunks. When a user asks a question, the question can also be embedded. The system then searches for document vectors that are most similar to the question vector.
+
+4. Retrieval
+
+The retrieval stage attempts to find the pieces of information that are most useful for answering the user's question.
+
+A typical retrieval process is:
+
+1. Split source documents into chunks.
+2. Generate an embedding for each chunk.
+3. Store the embeddings and associated text.
+4. Convert a user question into an embedding.
+5. Compare the question embedding with stored chunk embeddings.
+6. Return the most relevant chunks.
+
+5. Augmentation
+
+The retrieved chunks are added to the model input along with the original question.
+
+For example:
+
+Context:
+[retrieved document chunks]
+
+Question:
+[the user's question]
+
+The LLM then uses this information to generate the answer.
+
+6. Generation
+
+The language model receives the question and retrieved context and generates a natural-language response.
+
+The quality of the final response depends partly on the quality of the retrieved context.
+
+7. RAG and vector search
+
+Vector search is useful when the user's wording does not exactly match the wording in the source documents. Semantic similarity can identify related content even when the same keywords are not present.
+
+8. Important distinction
+
+Retrieval quality and answer quality are different.
+
+A system can retrieve the correct document but still generate a poor answer.
+
+A system can also generate a plausible answer even when retrieval failed, because the LLM may already know something about the topic.
+
+Therefore, RAG evaluation should examine both retrieval and generation.

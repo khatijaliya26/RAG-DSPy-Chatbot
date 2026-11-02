@@ -1,0 +1,26 @@
+question_id,question,reference_answer
+q01,What is Retrieval-Augmented Generation (RAG)?,RAG is an architecture that combines information retrieval with a large language model by retrieving relevant external information and providing it to the model as context before generating an answer.
+q02,Why is RAG useful for an LLM application?,"RAG allows an application to provide an LLM with external, domain-specific, private, or changing information instead of relying only on knowledge learned during model training."
+q03,What are the three main stages of a basic RAG workflow?,"The three main stages are retrieve, augment, and generate."
+q04,What happens during the retrieval stage of RAG?,The system searches an index or data store for information that is relevant to the user's question.
+q05,What happens during the augmentation stage of RAG?,The system combines the user's question with the relevant information retrieved from the external knowledge source and provides it as context to the LLM.
+q06,What happens during the generation stage of RAG?,The LLM receives the question together with the retrieved context and generates a response.
+q07,What is grounding in RAG?,Grounding means providing the language model with relevant source information so that its response is based on retrieved evidence rather than only its internal learned knowledge.
+q08,What is chunking in a RAG system?,Chunking is the process of splitting large source documents into smaller pieces that can be embedded and retrieved individually.
+q09,Why are documents split into chunks for RAG?,Smaller chunks are easier to retrieve and can provide the LLM with more focused and relevant context.
+q10,What is an embedding?,An embedding is a numerical vector representation of text or other data that captures semantic characteristics and can be used for similarity search.
+q11,Why are embeddings used in RAG?,Embeddings allow questions and document chunks to be represented as vectors so that semantically similar content can be identified through similarity search.
+q12,What is a vector database or vector index?,It is a storage or indexing system that stores vector representations and supports similarity search to retrieve semantically related content.
+q13,How does vector retrieval work in a basic RAG system?,"Document chunks are embedded and stored, the user question is embedded, and the system compares the question vector with stored vectors to retrieve the most similar chunks."
+q14,What is semantic search?,Semantic search finds information based on meaning or semantic similarity rather than requiring an exact keyword match.
+q15,What is the difference between keyword search and semantic search?,"Keyword search primarily looks for matching terms, while semantic search attempts to find content that is related in meaning even when the wording differs."
+q16,What is hybrid search?,"Hybrid search combines multiple retrieval approaches, such as keyword search and semantic or vector search."
+q17,What is reranking in a retrieval system?,Reranking is the process of reordering retrieved results according to their relevance so that the most useful results are placed higher.
+q18,Why is retrieval quality important in RAG?,"The retrieved context provides information to the LLM, so irrelevant or missing context can lead to poor or unsupported answers."
+q19,Can a RAG system retrieve the correct document and still generate a wrong answer?,Yes. Retrieval quality and generation quality are different; the LLM can still misunderstand or incorrectly use relevant retrieved context.
+q20,Can an LLM give a plausible answer even when RAG retrieval fails?,Yes. An LLM may already have relevant knowledge from training and can generate a plausible answer even if the retrieved context is irrelevant.
+q21,Why should retrieval and generation be evaluated separately?,"They represent different failure points: retrieval may fail to find relevant information, while generation may fail to correctly use relevant information."
+q22,What is the purpose of storing source metadata with retrieved chunks?,"Source metadata such as document titles, file names, or URLs helps identify and cite the sources used to support an answer."
+q23,What are some common limitations of RAG?,"RAG can fail because relevant information is not retrieved, chunks lack sufficient context, the source data is poor, or the LLM does not correctly use the retrieved information."
+q24,What is the basic architecture of a RAG system?,"Source documents are prepared and chunked, chunks are embedded and indexed, a user question is used for retrieval, relevant context is passed with the question to an LLM, and the LLM generates the response."
+q25,What is the difference between retrieval quality and answer quality?,"Retrieval quality measures whether useful information was found, while answer quality measures whether the generated response correctly and appropriately answers the question using the available information."

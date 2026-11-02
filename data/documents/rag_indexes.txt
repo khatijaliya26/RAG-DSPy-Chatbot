@@ -1,0 +1,71 @@
+RAG AND INDEXES
+
+Source: Microsoft Learn, Retrieval augmented generation (RAG) and indexes in Microsoft Foundry.
+Purpose: Learning material for a RAG demonstration project.
+
+1. RAG overview
+
+Retrieval-Augmented Generation combines search with large language models so that responses can be grounded in external data.
+
+The main reason to use RAG is that the model's training data may not contain the information required by an application, or the application may need information that changes over time.
+
+2. Three-step RAG process
+
+Retrieve:
+Query an index or data store to find relevant content.
+
+Augment:
+Combine the user's question with retrieved content.
+
+Generate:
+Give the augmented input to the language model so it can generate a response grounded in the retrieved content.
+
+3. Index
+
+An index is a structure designed to make information retrieval efficient and consistent.
+
+Depending on the system, an index can support keyword search, semantic search, vector search, or hybrid search.
+
+4. Embeddings
+
+Embeddings are numerical representations of content. They can be used for vector similarity search.
+
+The document chunks and user queries are represented in the same embedding space so that the system can search for semantically related information.
+
+5. Retrieval methods
+
+Keyword search finds content using matching terms.
+
+Semantic search attempts to identify content based on meaning.
+
+Vector search compares vector representations.
+
+Hybrid search combines multiple retrieval approaches.
+
+6. Retrieved context
+
+The retrieved content is supplied to the LLM as grounding information. The model can then use the retrieved information when producing its response.
+
+7. Citations and source metadata
+
+A retrieval system can store metadata such as document title, file name, URL, or other source information along with the text. This can help applications identify the sources used for an answer.
+
+8. Limitations
+
+RAG systems can fail when relevant information is not retrieved, when chunks do not contain enough context, or when the language model does not correctly use the retrieved information.
+
+Performance can also be affected by retrieval quality, latency, context size, and the quality of the source data.
+
+9. Simplified architecture
+
+Source documents
+-> preparation and chunking
+-> embeddings
+-> index
+
+User question
+-> retrieval
+-> relevant context
+-> augmented prompt
+-> LLM
+-> generated response

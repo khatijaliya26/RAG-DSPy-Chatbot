@@ -1,0 +1,73 @@
+RAG FUNDAMENTALS
+
+Source: Microsoft Learn, RAG and indexes / RAG fundamentals concepts.
+Purpose: Learning material for a RAG demonstration project.
+
+1. What is RAG?
+
+Retrieval-Augmented Generation (RAG) is an architecture that combines information retrieval with a large language model (LLM). Instead of relying only on knowledge learned during model training, the application retrieves relevant information from an external knowledge source and provides that information to the LLM as context.
+
+The basic idea is:
+
+User question
+-> retrieve relevant information
+-> add the retrieved information to the prompt
+-> generate an answer using the LLM
+
+RAG is useful when answers need to be based on private documents, domain-specific information, or information that can change after the model was trained.
+
+2. The RAG workflow
+
+A traditional RAG workflow has three main stages:
+
+Retrieve:
+The application receives a user question and searches an index or data store for relevant information.
+
+Augment:
+The application combines the user's question with the retrieved information. The retrieved information becomes grounding context for the language model.
+
+Generate:
+The LLM receives the question together with the retrieved context and generates a response.
+
+3. Grounding
+
+Grounding means giving the language model relevant source information so that its response is based on retrieved evidence rather than only on information stored in its model parameters.
+
+Grounding can reduce unsupported statements and can make it possible to provide citations or references to source material.
+
+4. Documents and chunks
+
+Large documents are usually split into smaller pieces called chunks. Chunks are easier to retrieve and can provide the model with focused context.
+
+Chunking is therefore an important part of preparing a document collection for retrieval.
+
+5. Embeddings
+
+An embedding is a numerical representation of text or another piece of data. Text with similar meaning can have similar vector representations.
+
+Embeddings allow a retrieval system to perform semantic similarity search. A user question can be converted into an embedding and compared with embeddings of document chunks.
+
+6. Indexes and vector search
+
+An index is a data structure organized to make retrieval efficient. A vector index can store or search embeddings and return chunks that are semantically similar to a query.
+
+7. RAG limitations
+
+RAG does not automatically guarantee a correct answer. If the retrieval system returns irrelevant information, the LLM may receive poor context. Even with relevant context, the model can still generate an incorrect or unsupported answer.
+
+For this reason, RAG systems should be evaluated separately for retrieval quality and answer quality.
+
+8. Simple architecture
+
+Documents
+-> chunking
+-> embeddings
+-> vector index
+
+User question
+-> query embedding
+-> similarity search
+-> top relevant chunks
+-> question + retrieved context
+-> LLM
+-> grounded answer
